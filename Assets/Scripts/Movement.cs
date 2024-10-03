@@ -5,7 +5,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float rotationSpeed = 25f;
 
-    // Publieke methoden om de snelheden aan te passen
+ 
     public void IncreaseMoveSpeed(float amount)
     {
         moveSpeed += amount;
