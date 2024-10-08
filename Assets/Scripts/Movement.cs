@@ -6,7 +6,6 @@ public class Movement : MonoBehaviour
     [SerializeField] private float rotationSpeed = 25f;
     [SerializeField] private bool useInput = false;
 
-
     public void IncreaseMoveSpeed(float amount)
     {
         moveSpeed += amount;
@@ -16,27 +15,24 @@ public class Movement : MonoBehaviour
     {
         rotationSpeed += amount;
     }
-
     void Update()
     {
-        Move();
         if (useInput)
         {
+            Move(Input.GetAxis("Vertical"));
             Rotate();
-        }
-    }
-
-    void Move()
-    {
-        if (useInput)
-        {
-            transform.position += transform.forward * moveSpeed * Input.GetAxis("Vertical") * Time.deltaTime;
         }
         else
         {
-            transform.position += transform.forward * moveSpeed * Time.deltaTime;
+            Move(1f);
         }
     }
+
+    void Move(float inputValue)
+    {
+        transform.position += transform.forward * moveSpeed * inputValue * Time.deltaTime;
+    }
+
     void Rotate()
     {
         transform.Rotate(transform.up * rotationSpeed * Time.deltaTime * Input.GetAxis("Horizontal"));

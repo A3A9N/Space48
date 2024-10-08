@@ -17,3 +17,4 @@ public class LaserBehaviour : MonoBehaviour
         transform.position = transform.position + transform.forward * moveSpeed * Time.deltaTime;
     }
 }
+
